@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahil More – Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Sahil More – Computer Engineering student & Full Stack Developer from India." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div class="cursor-glow" id="cursorGlow"></div><div id="cur-label"></div>
+<canvas id="canvas3d"></canvas>
+
+<div class="grain"></div><!-- NAV -->
+<!-- MOBILE MENU -->
+<div id="mobile-menu" role="dialog" aria-modal="true">
+  <ul class="mob-nav-list">
+    <li><a href="#skills" class="mob-link">Skills</a></li>
+    <li><a href="#projects" class="mob-link">Projects</a></li>
+    <li><a href="#education" class="mob-link">Education</a></li>
+    <li><a href="#experience" class="mob-link">Experience</a></li>
+    <li><a href="#certificates" class="mob-link">Certs</a></li>
+  </ul>
+  <a href="#contact" class="mob-cta mob-link">Hire Me &#8594;</a>
+  <div class="mob-socials">
+    <a class="mob-s" href="https://github.com/Sahilmore469" target="_blank" rel="noopener">GH</a>
+    <a class="mob-s" href="mailto:your@email.com">&#9993;</a>
+  </div>
+</div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">SAHIL MORE</a>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certificates">Certs</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero-container">
+  <div class="hero-left reveal">
+      <div class="hero-badge"><span class="dot"></span>Available for Internships & Projects</div>
+      <h1 class="hero-name">I'm <span class="cyan">Sahil<br>More</span></h1>
+      <p class="hero-sub" style="font-family: 'Space Mono', monospace; font-size: 0.9rem; text-transform: uppercase; color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 1rem;">Full Stack Dev & CS Engineer</p>
+      <p class="hero-desc" style="font-style: italic; opacity: 0.8; line-height: 1.8;">
+        Passionate Computer Engineering student specializing in full-stack development, Android apps, data analytics and computer vision. I turn ideas into production-ready projects  from real-time web apps to AI-powered tools. Currently seeking internships & collaborations.
+      </p>
+      <div class="hero-btns" style="display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem;">
+        <a href="#projects" class="btn-pill btn-white">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          View My Work
+        </a>
+        <a href="https://github.com/Sahilmore469" target="_blank" class="btn-pill btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub Profile
+        </a>
+      </div>
+    </div>
+
+  <div class="hero-right reveal" style="transition-delay:.2s">
+    <div style="display:flex;flex-direction:column;gap:1.5rem;align-items:center">
+
+      <!-- Avatar ring -->
+      <div style="position:relative;width:190px;height:190px">
+        <div style="position:absolute;inset:0;border-radius:50%;background:conic-gradient(var(--cyan),var(--blue),var(--cyan));animation:spin 8s linear infinite;opacity:.6"></div>
+        <div style="position:absolute;inset:3px;border-radius:50%;background:var(--dark)"></div>
+        <img src="assets/images/profile.jpg" alt="Sahil More"
+          style="position:relative;z-index:2;width:184px;height:184px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin:3px auto 0" />
+        <div style="position:absolute;bottom:22px;right:22px;z-index:3;width:20px;height:20px;border-radius:50%;background:#4ade80;border:3px solid var(--dark);box-shadow:0 0 8px #4ade80"></div>
+      </div>
+
+      <div style="text-align:center">
+        <p style="font-family:'Space Mono',monospace;font-size:.7rem;color:var(--cyan);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.3rem">// building cool things ⚡</p>
+        <p style="font-size:.85rem;color:var(--text2)">CS Engineering Student · India 🇮🇳</p>
+      </div>
+
+      <!-- Terminal -->
+      <div class="terminal" id="terminal" style="width:100%">
+        <div class="terminal-bar">
+          <div class="dot dot-r" id="btn-close"></div>
+          <div class="dot dot-y" id="btn-min"></div>
+          <div class="dot dot-g" id="btn-max"></div>
+          <span class="terminal-title">portfolio.sh — sahil@dev.in</span>
+        </div>
+        <div class="terminal-body" id="term-output" style="min-height:200px;max-height:280px;overflow-y:auto;scroll-behavior:smooth"></div>
+        <div style="display:flex;align-items:center;padding:.4rem 1.5rem 1rem;border-top:1px solid rgba(74,222,128,.1);gap:.5rem">
+          <span style="font-family:'Space Mono',monospace;font-size:.8rem;color:var(--cyan)">$</span>
+          <input id="term-input" type="text" autocomplete="off" spellcheck="false"
+            placeholder="type 'help' and press Enter…"
+            style="flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:'Space Mono',monospace;font-size:.8rem;caret-color:var(--cyan)" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ticker-item">Full Stack Development <span class="sep">?</span></span>
+      <span class="ticker-item">Creative Coding <span class="sep">?</span></span>
+      <span class="ticker-item">UI/UX Design <span class="sep">?</span></span>
+      <span class="ticker-item">System Architecture <span class="sep">?</span></span>
+      <span class="ticker-item">Frontend Engineering <span class="sep">?</span></span>
+      <span class="ticker-item">Backend API <span class="sep">?</span></span>
+      <span class="ticker-item">Full Stack Development <span class="sep">?</span></span>
+      <span class="ticker-item">Creative Coding <span class="sep">?</span></span>
+      <span class="ticker-item">UI/UX Design <span class="sep">?</span></span>
+      <span class="ticker-item">System Architecture <span class="sep">?</span></span>
+      <span class="ticker-item">Frontend Engineering <span class="sep">?</span></span>
+      <span class="ticker-item">Backend API <span class="sep">?</span></span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div id="stats">
+    <div class="sb"><span class="sb-num" data-t="3">0</span><span class="sb-lbl">Years Coding</span></div>
+    <div class="sb"><span class="sb-num" data-t="50">0</span><span class="sb-lbl">Projects Built</span></div>
+    <div class="sb"><span class="sb-num" data-t="15">0</span><span class="sb-lbl">Hackathons</span></div>
+    <div class="sb"><span class="sb-num" data-t="1">0</span><span class="sb-lbl">Million Lines Code</span></div>
+  </div>
+
+  <!-- SKILLS -->
+<section id="skills">
+  <p class="s-tag">what i know</p>
+  <h2 class="s-title">Skills</h2>
+  <!-- orbit + icon grid injected by orbiting-skills.js -->
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="s-tag">what i built</p>
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1rem">
+    <h2 class="s-title" style="margin:0">Projects</h2>
+    <div style="display:flex;align-items:center;gap:.8rem">
+      <span style="font-family:'Space Mono',monospace;font-size:.7rem;color:var(--text2);opacity:.7;letter-spacing:.08em">// drag or scroll →</span>
+      <button id="proj-prev" onmouseover="this.style.background='rgba(74,222,128,.18)'" onmouseout="this.style.background='rgba(74,222,128,.07)'" style="width:36px;height:36px;border-radius:50%;background:rgba(74,222,128,.07);border:1px solid var(--border2);color:var(--cyan);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s">&#8249;</button>
+      <button id="proj-next" onmouseover="this.style.background='rgba(74,222,128,.18)'" onmouseout="this.style.background='rgba(74,222,128,.07)'" style="width:36px;height:36px;border-radius:50%;background:rgba(74,222,128,.07);border:1px solid var(--border2);color:var(--cyan);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s">&#8250;</button>
+    </div>
+  </div>
+
+  <div id="proj-dots" style="display:flex;gap:6px;margin-bottom:1.4rem"></div>
+
+  <div style="position:relative">
+    <div style="position:absolute;left:0;top:0;bottom:16px;width:48px;background:linear-gradient(to right,var(--dark),transparent);z-index:2;pointer-events:none"></div>
+    <div style="position:absolute;right:0;top:0;bottom:16px;width:80px;background:linear-gradient(to left,var(--dark),transparent);z-index:2;pointer-events:none"></div>
+
+    <div id="projects-scroll" style="display:flex;gap:1.5rem;overflow-x:auto;scroll-behavior:smooth;padding-bottom:1rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab">
+      <style>#projects-scroll::-webkit-scrollbar{display:none}#projects-scroll.dragging{cursor:grabbing;user-select:none}</style>
+
+      <div class="project-card" style="min-width:350px;max-width:350px;flex-shrink:0">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=300&fit=crop" alt="Project Image" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-num" style="text-transform:uppercase; font-family:'Space Mono', monospace; font-size:0.65rem; font-weight:700; color:#5a75ff !important; margin-bottom:0.8rem;">01 — ⭐ 1</div>
+            <div class="project-title" style="font-size: 1.25rem !important;">🖐️ Hand Gesture Laptop Control</div>
+            <p class="project-desc">Control your laptop's mouse, clicks and volume using only hand gestures via webcam. Uses MediaPipe's 21-keypoint hand landmark detection mapped to real-time system actions — no special hardware required.</p>
+            <div class="project-tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">PyAutoGUI</span><span class="tag">NumPy</span></div>
+            <a href="https://github.com/Sahilmore469/Hand-Gesture-Laptop-Control" target="_blank" class="project-link">View on GitHub →</a>
+          </div>
+</div><div class="project-card" style="min-width:350px;max-width:350px;flex-shrink:0">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=300&fit=crop" alt="Project Image" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-num" style="text-transform:uppercase; font-family:'Space Mono', monospace; font-size:0.65rem; font-weight:700; color:#5a75ff !important; margin-bottom:0.8rem;">02 — ⭐ 1</div>
+            <div class="project-title" style="font-size: 1.25rem !important;">💬 Real-Time Chat Application</div>
+            <p class="project-desc">A real-time chat web app built with Node.js and Socket.io. Multiple users join a shared room, exchange messages instantly, and get live join/leave notifications — all with no page reloads.</p>
+            <div class="project-tags"><span class="tag">Node.js</span><span class="tag">Socket.io</span><span class="tag">Express.js</span><span class="tag">HTML/CSS</span></div>
+            <a href="https://github.com/Sahilmore469/realtimechatapplication-nodejs-" target="_blank" class="project-link">View on GitHub →</a>
+          </div>
+</div><div class="project-card" style="min-width:350px;max-width:350px;flex-shrink:0">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=300&fit=crop" alt="Project Image" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-num" style="text-transform:uppercase; font-family:'Space Mono', monospace; font-size:0.65rem; font-weight:700; color:#5a75ff !important; margin-bottom:0.8rem;">03 —</div>
+            <div class="project-title" style="font-size: 1.25rem !important;">🚌 E-Bus Ticket Booking</div>
+            <p class="project-desc">A responsive platform for booking eco-friendly electric bus travel. Clean, modern interface for trip details and bookings with mobile-first design and accessibility in mind.</p>
+            <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+            <a href="https://github.com/Sahilmore469/ebusticketbooking" target="_blank" class="project-link">View on GitHub →</a>
+          </div>
+</div><div class="project-card" style="min-width:350px;max-width:350px;flex-shrink:0">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?w=600&h=300&fit=crop" alt="Project Image" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-num" style="text-transform:uppercase; font-family:'Space Mono', monospace; font-size:0.65rem; font-weight:700; color:#5a75ff !important; margin-bottom:0.8rem;">04 —</div>
+            <div class="project-title" style="font-size: 1.25rem !important;">🧩 Puzzle Game</div>
+            <p class="project-desc">An interactive in-browser puzzle game built with TypeScript — demonstrating type-safety, component-based game logic and smooth state management.</p>
+            <div class="project-tags"><span class="tag">TypeScript</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
+            <a href="https://github.com/Sahilmore469/puzzle-game" target="_blank" class="project-link">View on GitHub →</a>
+          </div>
+</div><div class="project-card" style="min-width:350px;max-width:350px;flex-shrink:0">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=600&h=300&fit=crop" alt="Project Image" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-num" style="text-transform:uppercase; font-family:'Space Mono', monospace; font-size:0.65rem; font-weight:700; color:#5a75ff !important; margin-bottom:0.8rem;">05 —</div>
+            <div class="project-title" style="font-size: 1.25rem !important;">📹 WebRTC Video App</div>
+            <p class="project-desc">A peer-to-peer video communication app powered by the WebRTC API. Live video/audio streams directly in the browser — no plugins, no installs, pure JavaScript.</p>
+            <div class="project-tags"><span class="tag">JavaScript</span><span class="tag">WebRTC</span><span class="tag">Node.js</span></div>
+            <a href="https://github.com/Sahilmore469/webrtc-app" target="_blank" class="project-link">View on GitHub →</a>
+          </div>
+</div><div class="project-card" style="min-width:350px;max-width:350px;flex-shrink:0">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop" alt="Project Image" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-num" style="text-transform:uppercase; font-family:'Space Mono', monospace; font-size:0.65rem; font-weight:700; color:#5a75ff !important; margin-bottom:0.8rem;">06 —</div>
+            <div class="project-title" style="font-size: 1.25rem !important;">🏢 NexaTech Company Site</div>
+            <p class="project-desc">A fully responsive tech company landing page with polished sections for products, team and contact. Smooth scroll interactions and clean visual design.</p>
+            <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+            <a href="https://github.com/Sahilmore469/nexatechcompany" target="_blank" class="project-link">View on GitHub →</a>
+          </div>
+</div></div>
+  </div>
+
+  <script>
+  (function(){
+    const scroll = document.getElementById('projects-scroll');
+    const dotsEl = document.getElementById('proj-dots');
+    const cards  = scroll ? scroll.querySelectorAll('.project-card') : [];
+    const CARD_W = 350 + 24;
+    const total  = cards.length;
+
+    for(let i = 0; i < total; i++){
+      const d = document.createElement('div');
+      d.style.cssText = 'width:8px;height:8px;border-radius:50%;background:var(--border2);transition:all .3s;cursor:pointer';
+      d.addEventListener('click', () => scrollTo(i));
+      dotsEl.appendChild(d);
+    }
+
+    function getActive(){ return Math.round(scroll.scrollLeft / CARD_W); }
+
+    function updateDots(){
+      const a = getActive();
+      dotsEl.querySelectorAll('div').forEach((d,i)=>{
+        d.style.background    = i === a ? 'var(--cyan)' : 'var(--border2)';
+        d.style.width         = i === a ? '22px' : '8px';
+        d.style.borderRadius  = '4px';
+      });
+    }
+
+    function scrollTo(idx){ scroll.scrollTo({left: idx * CARD_W, behavior:'smooth'}); }
+
+    document.getElementById('proj-next').addEventListener('click', () => scrollTo(Math.min(getActive()+1, total-1)));
+    document.getElementById('proj-prev').addEventListener('click', () => scrollTo(Math.max(getActive()-1, 0)));
+    scroll.addEventListener('scroll', updateDots);
+    updateDots();
+
+    let isDown = false, startX, startScroll;
+    scroll.addEventListener('mousedown',  e => { isDown=true; startX=e.pageX; startScroll=scroll.scrollLeft; scroll.classList.add('dragging'); });
+    scroll.addEventListener('mouseleave', () => { isDown=false; scroll.classList.remove('dragging'); });
+    scroll.addEventListener('mouseup',    () => { isDown=false; scroll.classList.remove('dragging'); });
+    scroll.addEventListener('mousemove',  e => { if(!isDown) return; e.preventDefault(); scroll.scrollLeft = startScroll-(e.pageX-startX); });
+  })();
+  </script>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="s-tag">where i learned</p>
+  <h2 class="s-title">Education</h2>
+  <div class="edu-list">
+    <div class="edu-item reveal">
+      <div class="edu-dot"></div>
+      <div>
+        <div class="edu-title">B.Tech – Computer Engineering</div>
+        <div class="edu-school">Lovely Professional University · 2024 – Present</div>
+        <div class="edu-year">Full-stack · DSA · System Programming · AI/ML</div>
+      </div>
+    </div>
+    <div class="edu-item reveal" style="transition-delay:.1s">
+      <div class="edu-dot"></div>
+      <div>
+        <div class="edu-title">Intermediate (12th) – Science</div>
+        <div class="edu-school">Rotary English Medium School · 2024</div>
+        <div class="edu-year">Physics · Chemistry · Mathematics · Computer Science</div>
+      </div>
+    </div>
+    <div class="edu-item reveal" style="transition-delay:.2s">
+      <div class="edu-dot"></div>
+      <div>
+        <div class="edu-title">Matriculation (10th)</div>
+        <div class="edu-school">Rotary English Medium School · 2022</div>
+        <div class="edu-year">Strong foundation in Mathematics &amp; Science</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <p class="s-tag">what i'm working on</p>
+    <h2 class="s-title">Experience &amp; Training</h2>
+  
+    <div class="exp-item reveal">
+      <div class="exp-role">SDE Intern</div>
+      <div class="exp-company">Bluestock Fintech &bull; Internship</div>
+      <div class="exp-period">2026</div>
+      <ul class="exp-bullets">
+        <li>Worked as a Software Development Engineer Intern at Bluestock Fintech.</li>
+        <li>Built and improved frontend interfaces using HTML, CSS and JavaScript &mdash; focusing on clean UI and responsive design.</li>
+        <li>Developed backend features using Node.js and Express.js, including REST API integration.</li>
+        <li>Collaborated on real-world projects &mdash; from requirement analysis to deployment &mdash; gaining hands-on full-stack experience.</li>
+      </ul>
+    </div>
+  
+    <div class="exp-item reveal" style="transition-delay:.1s">
+      <div class="exp-role">A Guide to Machine Learning with Data Science</div>
+      <div class="exp-company">CipherSchools</div>
+      <div class="exp-period">Aug 2026</div>
+      <ul class="exp-bullets">
+        <li>Completed a hands-on ML training program covering the end-to-end workflow &mdash; EDA, preprocessing, model building, evaluation, and deployment.</li>
+        <li>Trained and compared Random Forest, Logistic Regression, and XGBoost models on the UCI Cleveland Heart Disease dataset, selecting Random Forest for its best ROC-AUC (0.908).</li>
+        <li>Built and deployed a Flask web app that serves the model live via a 13-field clinical intake form returning instant, interpretable risk predictions.</li>
+      </ul>
+      <div class="project-tags" style="margin-top: 1rem; margin-left: 2rem;">
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">XGBoost</span>
+        <span class="tag">Pandas</span>
+      </div>
+    </div>
+  </section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <p class="s-tag">proof of skills</p>
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1rem">
+    <h2 class="s-title" style="margin:0">Certificates</h2>
+    <div style="display:flex;align-items:center;gap:.8rem">
+      <span style="font-family:'Space Mono',monospace;font-size:.7rem;color:var(--text2);opacity:.7;letter-spacing:.08em">// scroll to view →</span>
+      <button id="cert-prev" onmouseover="this.style.background='rgba(74,222,128,.18)'" onmouseout="this.style.background='rgba(74,222,128,.07)'" style="width:36px;height:36px;border-radius:50%;background:rgba(74,222,128,.07);border:1px solid var(--border2);color:var(--cyan);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s">&#8249;</button>
+      <button id="cert-next" onmouseover="this.style.background='rgba(74,222,128,.18)'" onmouseout="this.style.background='rgba(74,222,128,.07)'" style="width:36px;height:36px;border-radius:50%;background:rgba(74,222,128,.07);border:1px solid var(--border2);color:var(--cyan);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s">&#8250;</button>
+    </div>
+  </div>
+
+  <div id="cert-dots" style="display:flex;gap:6px;margin-bottom:1.4rem"></div>
+
+  <div style="position:relative">
+    <div style="position:absolute;left:0;top:0;bottom:16px;width:48px;background:linear-gradient(to right,var(--dark),transparent);z-index:2;pointer-events:none"></div>
+    <div style="position:absolute;right:0;top:0;bottom:16px;width:80px;background:linear-gradient(to left,var(--dark),transparent);z-index:2;pointer-events:none"></div>
+
+    <div id="cert-scroll" style="display:flex;gap:1.5rem;overflow-x:auto;scroll-behavior:smooth;padding-bottom:1rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab">
+    <style>#cert-scroll::-webkit-scrollbar{display:none}#cert-scroll.dragging{cursor:grabbing;user-select:none}</style>
+
+      <!-- 1: NPTEL Programming in Java -->
+      <div class="cert-card" style="min-width:480px;max-width:480px;flex-shrink:0;padding:0;overflow:hidden; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+        <div style="width:100%;height:300px;overflow:hidden;border-radius:16px 16px 0 0;background:var(--card);">
+          <img src="assets/images/cert-nptel.jpeg" alt="NPTEL Certificate" style="width:100%;height:100%;object-fit:contain;object-position:center;padding:12px;box-sizing:border-box;display:block;"/>
+        </div>
+        <div style="padding:1.2rem">
+          <div class="cert-title">Programming In Java</div>
+          <div class="cert-issuer">NPTEL · IIT Kharagpur · Elite</div>
+          <div class="cert-date">Jul – Oct 2025 · Score: 86%</div>
+        </div>
+      </div>
+
+      <!-- 2: Udemy Certified Data Analyst Foundations -->
+      <div class="cert-card" style="min-width:480px;max-width:480px;flex-shrink:0;padding:0;overflow:hidden; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+        <div style="width:100%;height:300px;overflow:hidden;border-radius:16px 16px 0 0;background:var(--card);">
+          <img src="assets/images/cert-udemy1.jpeg" alt="Udemy Certificate" style="width:100%;height:100%;object-fit:contain;object-position:center;padding:12px;box-sizing:border-box;display:block;"/>
+        </div>
+        <div style="padding:1.2rem">
+          <div class="cert-title">Certified Data Analyst Foundations</div>
+          <div class="cert-issuer">Udemy · Data Science Academy</div>
+          <div class="cert-date">Dec 21, 2025 · 1 hour</div>
+        </div>
+      </div>
+
+      <!-- 3: Udemy Data Analytics & Visualization -->
+      <div class="cert-card" style="min-width:480px;max-width:480px;flex-shrink:0;padding:0;overflow:hidden; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+        <div style="width:100%;height:300px;overflow:hidden;border-radius:16px 16px 0 0;background:var(--card);">
+          <img src="assets/images/cert-udemy2.jpeg" alt="Udemy Certificate" style="width:100%;height:100%;object-fit:contain;object-position:center;padding:12px;box-sizing:border-box;display:block;"/>
+        </div>
+        <div style="padding:1.2rem">
+          <div class="cert-title">Data Analytics &amp; Visualization: Excel &amp; Python</div>
+          <div class="cert-issuer">Udemy · Meritshot Academy</div>
+          <div class="cert-date">Dec 21, 2025 · 17 hours</div>
+        </div>
+      </div>
+
+      <!-- 4: Microsoft Fabric -->
+      <div class="cert-card" style="min-width:480px;max-width:480px;flex-shrink:0;padding:0;overflow:hidden; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+        <div style="width:100%;height:300px;overflow:hidden;border-radius:16px 16px 0 0;background:var(--card);">
+          <img src="assets/images/cert-microsoft.jpeg" alt="Microsoft Certificate" style="width:100%;height:100%;object-fit:contain;object-position:center;padding:12px;box-sizing:border-box;display:block;"/>
+        </div>
+        <div style="padding:1.2rem">
+          <div class="cert-title">Get Started with Data Science in Microsoft Fabric</div>
+          <div class="cert-issuer">Microsoft Learn</div>
+          <div class="cert-date">January 2, 2026</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    const scroll = document.getElementById('cert-scroll');
+    const dotsEl = document.getElementById('cert-dots');
+    const cards  = scroll ? scroll.querySelectorAll('.cert-card') : [];
+    const CARD_W = 480 + 24;
+    const total  = cards.length;
+
+    for(let i = 0; i < total; i++){
+      const d = document.createElement('div');
+      d.style.cssText = 'width:8px;height:8px;border-radius:50%;background:var(--border2);transition:all .3s;cursor:pointer';
+      d.addEventListener('click', () => scrollTo(i));
+      dotsEl.appendChild(d);
+    }
+
+    function getActive(){ return Math.round(scroll.scrollLeft / CARD_W); }
+    function updateDots(){
+      const a = getActive();
+      dotsEl.querySelectorAll('div').forEach((d,i)=>{
+        d.style.background   = i===a ? 'var(--cyan)' : 'var(--border2)';
+        d.style.width        = i===a ? '22px' : '8px';
+        d.style.borderRadius = '4px';
+      });
+    }
+    function scrollTo(idx){ scroll.scrollTo({left: idx * CARD_W, behavior:'smooth'}); }
+
+    document.getElementById('cert-next').addEventListener('click', () => scrollTo(Math.min(getActive()+1, total-1)));
+    document.getElementById('cert-prev').addEventListener('click', () => scrollTo(Math.max(getActive()-1, 0)));
+    scroll.addEventListener('scroll', updateDots);
+    updateDots();
+
+    let isDown=false, startX, startScroll;
+    scroll.addEventListener('mousedown',  e=>{ isDown=true; startX=e.pageX; startScroll=scroll.scrollLeft; scroll.classList.add('dragging'); });
+    scroll.addEventListener('mouseleave', ()=>{ isDown=false; scroll.classList.remove('dragging'); });
+    scroll.addEventListener('mouseup',    ()=>{ isDown=false; scroll.classList.remove('dragging'); });
+    scroll.addEventListener('mousemove',  e=>{ if(!isDown) return; e.preventDefault(); scroll.scrollLeft=startScroll-(e.pageX-startX); });
+  })();
+  </script>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <p class="s-tag">proud moments</p>
+  <h2 class="s-title">Achievements</h2>
+  <div class="achieve-grid">
+
+    <div class="achieve-card reveal">
+      <div class="achieve-icon">🏅</div>
+      <div class="achieve-title">NPTEL Elite — Programming in Java</div>
+      <div class="achieve-desc">Scored 86% in IIT Kharagpur's 12-week Java course — top performer tier with Elite badge · Jul–Oct 2025</div>
+      <a href="https://github.com/Sahilmore469" target="_blank" class="achieve-link">View →</a>
+    </div>
+
+    <div class="achieve-card reveal" style="transition-delay:.1s">
+      <div class="achieve-icon">💼</div>
+      <div class="achieve-title">SDE Intern — Bluestock Fintech</div>
+      <div class="achieve-desc">Selected as Software Development Engineer Intern — built real-world full-stack features in a fintech product</div>
+      <a href="https://github.com/Sahilmore469" target="_blank" class="achieve-link">GitHub →</a>
+    </div>
+
+    <div class="achieve-card reveal" style="transition-delay:.2s">
+      <div class="achieve-icon">📦</div>
+      <div class="achieve-title">33 Public Repositories</div>
+      <div class="achieve-desc">Web · Mobile · AI/ML · Data · Systems — building and shipping in the open consistently</div>
+      <a href="https://github.com/Sahilmore469" target="_blank" class="achieve-link">GitHub →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="max-width:100%;padding-left:4rem;padding-right:4rem">
+  <p class="s-tag">get in touch</p>
+  <h2 class="s-title">Get In Touch</h2>
+  <div class="contact-grid" style="display:grid;gap:3rem;align-items:start;margin-top:2rem">
+
+    <div class="reveal" style="display:flex;flex-direction:column;gap:1.2rem">
+
+      <p style="font-size:.88rem;color:var(--text2);line-height:1.8;margin:0">
+        Open to collaborations, opportunities, or a good tech conversation.
+        Ship it. Learn from it. 🚀
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:.7rem">
+        <div class="contact-row"><span>💼</span><a href="https://linkedin.com/in/sahilmore45" target="_blank" style="color:var(--text2);text-decoration:none">linkedin.com/in/sahilmore45</a></div>
+        <div class="contact-row"><span>🐙</span><a href="https://github.com/Sahilmore469" target="_blank" style="color:var(--text2);text-decoration:none">github.com/Sahilmore469</a></div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:.6rem;padding:.8rem 1rem;background:rgba(74,222,128,.05);border:1px solid var(--border);border-radius:4px">
+        <span style="font-size:1.1rem">📍</span>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:.7rem;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase">Location</div>
+          <div style="font-size:.85rem;color:var(--text2)">India 🇮🇳 · Open to Remote</div>
+        </div>
+      </div>
+
+      <div class="socials">
+        <a href="https://github.com/Sahilmore469"     target="_blank" class="social-btn" title="GitHub">🐙</a>
+        <a href="https://linkedin.com/in/sahilmore45" target="_blank" class="social-btn" title="LinkedIn">💼</a>
+      </div>
+
+      <!-- MAP -->
+      <div style="position:relative;width:100%;border-radius:8px;overflow:hidden;border:1px solid var(--border2);box-shadow:var(--glow2)">
+        <div style="position:absolute;top:10px;left:10px;z-index:20;background:rgba(2,11,24,.88);border:1px solid var(--border2);border-radius:4px;padding:.3rem .7rem;display:flex;align-items:center;gap:.5rem">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);display:inline-block;animation:blink 1.5s ease-in-out infinite"></span>
+          <span style="font-family:'Space Mono',monospace;font-size:.62rem;color:var(--cyan);letter-spacing:.1em">INDIA 🇮🇳</span>
+        </div>
+        <div id="contact-map" style="width:100%;height:220px"></div>
+        <div style="position:absolute;bottom:10px;right:10px;z-index:20;display:flex;flex-direction:column;gap:4px">
+          <button id="map-zoom-in"  style="width:28px;height:28px;background:rgba(4,18,38,.9);border:1px solid var(--border2);border-radius:4px;color:var(--cyan);font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s">+</button>
+          <button id="map-zoom-out" style="width:28px;height:28px;background:rgba(4,18,38,.9);border:1px solid var(--border2);border-radius:4px;color:var(--cyan);font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s">−</button>
+        </div>
+      </div>
+      <p style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--text2);text-align:center;margin:0;opacity:.5">// based in Punjab, India · open to remote &amp; relocation</p>
+
+    </div>
+
+    <div class="reveal" style="transition-delay:.3s;position:sticky;top:6rem">
+      <form class="contact-form" id="contact-form" onsubmit="sendEmail(event)">
+        <div class="form-group"><label>Your Name</label><input type="text" id="from_name" placeholder="John Doe" required /></div>
+        <div class="form-group"><label>Your Email</label><input type="email" id="from_email" placeholder="john@email.com" required /></div>
+        <div class="form-group"><label>Subject</label><input type="text" id="subject" placeholder="Let's collaborate!" required /></div>
+        <div class="form-group"><label>Message</label><textarea id="message" placeholder="Your message here…" style="min-height:120px" required></textarea></div>
+        <button type="submit" id="send-btn" class="btn btn-primary" style="width:100%">✉ Send Message</button>
+        <p id="form-status" style="font-family:'Space Mono',monospace;font-size:.75rem;text-align:center;margin-top:.8rem;display:none"></p>
+      </form>
+
+      <!-- EmailJS SDK -->
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+      <script>
+        // ── REPLACE THESE 3 VALUES WITH YOURS FROM emailjs.com ──
+        const EMAILJS_PUBLIC_KEY  = 'CaD0kpbVzmlASfxmS';   // Account → API Keys
+        const EMAILJS_SERVICE_ID  = 'service_9xemseo';   // Email Services → Service ID
+        const EMAILJS_TEMPLATE_ID = 'template_9w2rdoy';  // Email Templates → Template ID
+       
+        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+        function sendEmail(e) {
+          e.preventDefault();
+          const btn    = document.getElementById('send-btn');
+          const status = document.getElementById('form-status');
+
+          btn.textContent = '⏳ Sending…';
+          btn.disabled = true;
+          status.style.display = 'none';
+
+          const params = {
+            from_name:  document.getElementById('from_name').value,
+            from_email: document.getElementById('from_email').value,
+            subject:    document.getElementById('subject').value,
+            message:    document.getElementById('message').value,
+          };
+
+          emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
+            .then(() => {
+              status.textContent   = '✅ Message sent! I will get back to you soon.';
+              status.style.color   = '#4ade80';
+              status.style.display = 'block';
+              btn.textContent      = '✉ Send Message';
+              btn.disabled         = false;
+              document.getElementById('contact-form').reset();
+            })
+            .catch((err) => {
+              status.textContent   = '❌ Failed to send. Please email directly.';
+              status.style.color   = '#f87171';
+              status.style.display = 'block';
+              btn.textContent      = '✉ Send Message';
+              btn.disabled         = false;
+              console.error('EmailJS error:', err);
+            });
+        }
+      </script>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Made with ❤️ &amp; &lt;code&gt; by <span>Sahil More</span> · <span>2025</span> ·
+     <a href="https://github.com/Sahilmore469" target="_blank" style="color:var(--cyan);text-decoration:none">@Sahilmore469</a>
+  </p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<script src="js/canvas.js"></script>
+<script src="js/map.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/terminal.js"></script>
+<script src="js/scroll.js"></script>
+<script src="js/orbiting-skills.js"></script>
+</body>
+</html>
